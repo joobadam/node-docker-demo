@@ -41,6 +41,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
+          platforms: linux/amd64,linux/arm64
           tags: |
             ${{ env.IMAGE_API }}:latest
             ${{ env.IMAGE_API }}:sha-${{ env.SHORT_SHA }}
@@ -53,6 +54,7 @@ jobs:
           context: ./web
           file: ./web/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
+          platforms: linux/amd64,linux/arm64
           tags: |
             ${{ env.IMAGE_WEB }}:latest
             ${{ env.IMAGE_WEB }}:sha-${{ env.SHORT_SHA }}
